@@ -1,0 +1,104 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+  <div class="button-row">
+    <a mat-flat-button color="primary" [routerLink]="['/articles']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+<form [formGroup]="materialInfoForm" (ngSubmit)="onSubmit()">
+
+    <h2 class="card-header">Material Specs Additional Information</h2>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Material Category Type" formControlName="materialCatType" [max]="100"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!materialInfoForm.get('materialCatType').valid && materialInfoForm.get('materialCatType').touched">Please enter Category Type</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Material Category Dept" formControlName="materialCatDept" [max]="100"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!materialInfoForm.get('materialCatDept').valid && materialInfoForm.get('materialCatDept').touched">Please enter Category Dept</span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Material Category Id" formControlName="materialCatId" [max]="100"
+           [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!materialInfoForm.get('materialCatId').valid && materialInfoForm.get('materialCatId').touched">Please enter Category Id</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Number of Spec Details</mat-label>
+    <select matNativeControl required formControlName="numberOfSpecs" (change)="onChangeSpecs($event)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+
+    <mat-error>
+      <span *ngIf="!materialInfoForm.get('numberOfSpecs').valid && materialInfoForm.get('numberOfSpecs').touched">Please select number of Specs</span>
+    </mat-error>
+  </mat-form-field>
+    <div *ngFor="let additionalInfo of t.controls; let i = index" class="list-group list-group-flush">
+      <div class="list-group-item">
+        <h3 class="card-title">Spec {{i + 1}}</h3>
+        <div [formGroup]="additionalInfo" class="form-row">
+          <mat-form-field class="example-full-width-25">
+            <input matInput placeholder="Label" formControlName="label" [max]="100"
+                   [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!additionalInfo.get('label').valid && additionalInfo.get('label').touched">Please enter Label of Spec</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width-25">
+            <mat-label>Spec DataType</mat-label>
+            <select matNativeControl required formControlName="datatype">
+              <option value="Text">Text</option>
+              <option value="File">File</option>
+              <option value="DropDown">DropDown</option>
+              <option value="Radio">RadioButton</option>
+            </select>
+            <mat-error>
+              <span *ngIf="!additionalInfo.get('datatype').valid && additionalInfo.get('datatype').touched">Please enter Datatype of Spec</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width-25">
+            <mat-label>Mandatory</mat-label>
+            <select matNativeControl required formControlName="mandatory">
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+
+            </select>
+            <mat-error>
+              <span *ngIf="!additionalInfo.get('mandatory').valid && additionalInfo.get('mandatory').touched">Please enter Mandatory of Spec</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width-25">
+            <input matInput placeholder="DropValues(Comma) Separated" formControlName="dropValues" [max]="100"
+                   [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!additionalInfo.get('dropValues').valid && additionalInfo.get('dropValues').touched">Please enter DropValues of Spec</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button class="btn btn-primary mr-1">Add Material Info</button>
+
+    </div>
+
+</form>
+  </mat-card>
+</div>
