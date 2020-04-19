@@ -32,7 +32,10 @@
           <span *ngIf="!materialInfoForm.get('materialCatId').valid && materialInfoForm.get('materialCatId').touched">Please enter Category Id</span>
         </mat-error>
       </mat-form-field>
+      <mat-form-field class="invisible example-full-width">
+        <input matInput formControlName="_id">
 
+      </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Number of Spec Details</mat-label>
         <select matNativeControl required formControlName="numberOfSpecs" (change)="onChangeSpecs($event)">
@@ -48,6 +51,18 @@
 
         <mat-error>
           <span *ngIf="!materialInfoForm.get('numberOfSpecs').valid && materialInfoForm.get('numberOfSpecs').touched">Please select number of Specs</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Edit or Make a New Copy</mat-label>
+        <select matNativeControl required formControlName="newOrEdit"  >
+          <option value="Edit" selected>Edit</option>
+          <option value="New">New Copy</option>
+
+        </select>
+
+        <mat-error>
+          <span *ngIf="!materialInfoForm.get('newOrEdit').valid && materialInfoForm.get('newOrEdit').touched">Edit or Make a new Copy</span>
         </mat-error>
       </mat-form-field>
       <div *ngFor="let additionalInfo of t.controls; let i = index" class="list-group list-group-flush">
@@ -91,6 +106,11 @@
                 <span *ngIf="!additionalInfo.get('dropValues').valid && additionalInfo.get('dropValues').touched">Please enter DropValues of Spec</span>
               </mat-error>
             </mat-form-field>
+            <mat-form-field class="invisible example-full-width">
+              <input matInput formControlName="_id">
+
+            </mat-form-field>
+
           </div>
         </div>
       </div>
