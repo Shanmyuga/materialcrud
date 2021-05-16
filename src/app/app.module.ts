@@ -8,6 +8,7 @@ import { AddMatinfosComponent } from './add-matinfos/add-matinfos.component';
 import { EditMatinfosComponent } from './edit-matinfos/edit-matinfos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
@@ -19,6 +20,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AddEpicComponent} from './epic/add-epic/add-epic.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInfosComponent,
     ShowMatinfosComponent,
     AddMatinfosComponent,
-    EditMatinfosComponent
+    EditMatinfosComponent,
+    AddEpicComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

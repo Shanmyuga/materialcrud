@@ -4,6 +4,7 @@ import {MatInfosComponent} from './matinfos/matinfos.component';
 import {ShowMatinfosComponent} from './show-matinfos/show-matinfos.component';
 import {AddMatinfosComponent} from './add-matinfos/add-matinfos.component';
 import {EditMatinfosComponent} from './edit-matinfos/edit-matinfos.component';
+import {AddEpicComponent} from './epic/add-epic/add-epic.component';
 
 const routes: Routes = [ {
   path: 'matInfos',
@@ -16,6 +17,11 @@ const routes: Routes = [ {
     data: { title: 'Show Material Information' }
   },
   {
+    path: 'add-epicInfo',
+    component: AddEpicComponent,
+    data: { title: 'Add Information' }
+  },
+  {
     path: 'add-matInfo',
     component: AddMatinfosComponent,
     data: { title: 'Add Information' }
@@ -25,8 +31,9 @@ const routes: Routes = [ {
     component: EditMatinfosComponent,
     data: { title: 'Edit Information' }
   },
+
   { path: '',
-    redirectTo: '/matInfos',
+    redirectTo: '/add-epicInfo',
     pathMatch: 'full'
   }];
 

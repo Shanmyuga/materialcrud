@@ -1,0 +1,39 @@
+<form novalidate [formGroup]="epicdiv" (ngSubmit)="onSubmit(epicdiv.value)">
+  <div class="container">
+    <div id="epicdivAccordion">
+      <div class="card" id="epicdivHeading">
+        <div class="card-header bg-info text-white" >EPIC Backlog</div>
+        <div id="epicdivCollapse"  aria-labelledby="epicdivHeading" >
+          <div class="card-body">
+            <div class="container">
+              <div class="form-group comp_padding">
+                <label for="epicID">EPIC ID:</label>
+                <input formControlName="epicID" type="text" class="form-control fit_within" id="epicID" [ngClass]="displayFieldCss('epicID')">
+              </div>
+              <div class="form-group">
+                <label for="epicDesc">EPIC DESCRIPTION:</label>
+                <textarea class="form-control" id="epicDesc" [ngClass]="displayFieldCss('epicDesc')"  displayName="textarea"  styleType="type1"  label="EPIC Description"  required ></textarea>
+              </div>
+              <div class="form-group comp_padding">
+                <label for="workorder">Work Order:</label>
+                <select class="form-control  fit_within" id="workorder" formControlName="workorder"  displayName="tc-dropdown"  styleType="type1"  label="Work Order"  tempdisplay=""  tempoption=""  required >
+                  <option value="">Select</option>
+                  <option value="test">test</option>
+                  <option value="luck">luck</option>
+                </select>
+              </div>
+              <div class="form-group comp_padding">
+                <label for="dept">Department :</label>
+                <select class="form-control  fit_within" id="dept" formControlName="dept"  displayName="tc-dropdown"  styleType="type1"  label="Department"  tempdisplay=""  tempoption=""  required >
+                  <option value="">Select</option>
+                  <option value="dept">dept</option>
+                </select>
+              </div>
+              <button type="submit" id="epicCreate" class="btn btn-primary" >Create EPIC</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
